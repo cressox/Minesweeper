@@ -36,7 +36,7 @@ def fiktiv():
     highscoores = {
                     "einfach":[{"time": "00:00:23", "name":"Herr Barth", "grid":"8x8"},
                                 {"time": "00:00:41", "name":"Cressox", "grid":"8x8"},
-                                {"time": "00:00:53", "name":"Terminator", "grid":"8x8"},
+                                {"time": "00:00:53", "name":"Dustin", "grid":"8x8"},
                                 {"time": "00:01:12", "name":"Gustav", "grid":"8x8"},
                                 {"time": "00:01:10", "name":"Phillip", "grid":"8x8"},],
                     
@@ -53,7 +53,7 @@ def fiktiv():
                                 {"time": "00:09:32", "name":"Ammen", "grid":"30x16"},],
                     
                     "benutzerdefiniert":[{"time": "00:07:00", "name":"Herr Barth", "grid":"30x30"},
-                                {"time": "00:07:15", "name":"Simon Alexander King", "grid":"30x30"},
+                                {"time": "00:07:15", "name":"Leon", "grid":"30x30"},
                                 {"time": "00:11:14", "name":"Kay", "grid":"19x25"},
                                 {"time": "00:13:32", "name":"Gina", "grid":"29x21"},
                                 {"time": "00:25:12", "name":"Sheela", "grid":"12x30"}]
