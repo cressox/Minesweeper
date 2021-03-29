@@ -1,6 +1,6 @@
 # Minesweeper
 
-Ich habe neben der Main Datei und allen dazugehörigen Datein eine Datei erstellt in der das gesamte Skript zusammengefasst ist.
+Ich habe neben der Main Datei und allen dazugehörigen Datein eine Datei erstellt in der das gesamte Skript zusammengefasst ist. Dies ist dei "MinesweeperInOneScript.py".
 Sie ist vom Code her identisch, einziger Unterschied sind die Imports.
 
 Ich habe das Spiel auf folgender Grundlage implementiert:
