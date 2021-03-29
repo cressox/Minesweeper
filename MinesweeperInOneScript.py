@@ -1,3 +1,7 @@
+# das gesamte spiel in einer datei zusammengefasst
+# alternativ ist die Main welche auf verschiedene Klassen
+# zugreift, der code ist identisch 
+
 import tkinter as tk
 import time, random, os, pickle 
 
