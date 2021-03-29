@@ -3,7 +3,7 @@ Ich habe das Spiel auf folgender grundlage implementiert:
 
 Aufgabenstellung:
 
-Minesweeper ist ein relativ altes Computerspiel, welches traditionsgemäß mit dem Betriebssystem Microsoft Windows mitgeliefert wurde. Ziel des Spiels ist es auf einem Rasterfeld durch logisches Denken und zufälligem Raten herrauszufinden, unter welchen Feldern Minen versteckt sind. Man gewinnt in dem man am Stück alle Felder aufdeckt, unter denen sich keine Minen befinden. Deckt man eine Mine auf, so verliert man das
+Minesweeper ist ein relativ altes Computerspiel, welches traditionsgemäß mit dem Betriebssystem Microsoft Windows mitgeliefert wurde. Ziel des Spiels ist es auf einem Rasterfeld durch logisches Denken und zufälligem Raten herrauszufinden, unter welchen Feldern Minen versteckt sind. Man gewinnt in dem man am Stück alle Felder aufdeckt, unter denen sich keine Minen befinden. Deckt man eine Mine auf, so verliert man das
 Spiel. Deckt man ein Feld ohne Minen auf, so erscheint auf diesem Feld eine Zahl, welche einem anzeigt wieviele Felder mit Minen direkt an das eben aufgedeckte Feld angrenzen. Zusätzlich läuft zu jeder Partie eine Stoppuhr, so dass die Zeit gemessen wird die der
 Spieler benötigt um das Spiel zu beenden. Implementiert mit Python eine lauffähige GUI-Version des Spiels Minesweeper. Im einzelnen soll das Programm folgendes leisten können:
 
