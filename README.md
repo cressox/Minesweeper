@@ -3,7 +3,7 @@
 Ich habe neben der Main Datei und allen dazugehörigen Datein eine Datei erstellt in der das gesamte Skript zusammengefasst ist.
 Sie ist vom Code her identisch, einziger Unterschied sind die Imports.
 
-Ich habe das Spiel auf folgender grundlage implementiert:
+Ich habe das Spiel auf folgender Grundlage implementiert:
 
 Aufgabenstellung:
 
