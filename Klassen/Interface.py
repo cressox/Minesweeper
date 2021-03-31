@@ -786,4 +786,3 @@ class Zelle():
 
         SpielFeld.checkGame(master=self.master, numOfMine=self.numOfMine, timer=self.timer)
         # checkt ob gewonnen #
-                                
