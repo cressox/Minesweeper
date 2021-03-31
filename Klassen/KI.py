@@ -62,28 +62,27 @@ class KI():
                     minProb = (i.tmpProb+i.baseProb)
                     tmpCell = i
 
-        clear = 0
-        # anzahl der offenen zellen #
+        OpenCells = False
+        # ob es offenen zellen gibt #
 
         for i in cellAsList:
         # zählt offenen zellen und checkt ob #
         # es mehr als eine zelle mit der minProb gibt #
 
-            if (i.tmpProb+i.baseProb)==minProb and i.untoucht:
+            if (i.tmpProb+i.baseProb)==minProb and i.untoucht and i.probability != 1:
                 trys.append(i)
-
+            
             elif not i.untoucht:
-            # zelle wurde geöffnet #
-
-                clear += 1
-                
+                OpenCells = True
+        
         tmpCell = trys[random.randint(0, len(trys)-1)]
         # eine zufällige zelle aller zellen die die #
         # minimale warscheinlichkeit haben #
 
-        if clear and minProb:
-        # wenn minProb != 0, dann gibt es keine Zelle #
-        # die sicher keine mine ist #
+        if minProb and OpenCells:
+        # wenn minProb != 0, dann gibt es keine zelle #
+        # die sicher keine mine ist, und es muss min eine zelle #
+        # offen sein, denn sonst ist es immer sicher keien mine #
 
             tmpCell.view.config(bg="yellow")
             # weil die zelle nicht sicher ist, wird sie #
@@ -134,6 +133,7 @@ class KI():
             # warscheinlichkeit auf 0 gesetzt #
 
                 cell.baseProb = 0
+                cell.tmpProb = 0
                 cell.probability = 0
 
     @staticmethod
@@ -176,7 +176,9 @@ class KI():
 
                         if cellAsList[i].untoucht:
                         # nur die ungeöffneten nachbarn werden aktualisiert #
-
+                            
+                            cellAsList[i].tmpProb = 0.5
+                            cellAsList[i].probability = 0.5
                             cellAsList[i].probability = 1
                             # gesamtwarscheinlichkeit auf 1 #
                 
@@ -207,7 +209,7 @@ class KI():
             for i in cell.neighbor:
             # geht nachbarn der zelle durch #
 
-                    if cellAsList[i].probability == 1 and not cell.untoucht: ##################################################################
+                    if cellAsList[i].probability == 1 and not cell.untoucht: 
                     # nachbar ist eine mine und markiert #
 
                         tmpMinen.append(i)
@@ -221,6 +223,8 @@ class KI():
                     if i in tmpMinen:
                     # zelle ist eine mine #
 
+                        cellAsList[i].tmpProb = 0.5
+                        cellAsList[i].probability = 0.5
                         cellAsList[i].probability = 1
                         # gesamtwarscheinlichkeit #
                     
