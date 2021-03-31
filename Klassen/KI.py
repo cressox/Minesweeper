@@ -1,6 +1,12 @@
 import tkinter as tk
 import random
 
+"""
+Die KI muss in manchen fällen raten, da es 50/50 oder nicht 100% Sitouationen gibt.
+Dann wählt sie das feld mit der ihr bekannt niedrigsten Warscheinlichkeit und färbt es 
+gelb ein. Somit ist Gelb das Zeichen, dass die KI nicht 100% sicher ist.
+"""
+
 class KI():
     def __init__(self, master):
         self.hint = tk.Button(master, text="Hinweis", width=10, pady=2.5, relief="solid", font=("Gill Sans Nova", 15))
