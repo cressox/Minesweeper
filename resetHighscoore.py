@@ -1,3 +1,5 @@
+# kann verwendet werden um den highsore zurückzusetzten #
+
 import pickle
 def reset():
 # setzt alle highscores zurück #
