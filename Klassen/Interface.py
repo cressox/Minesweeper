@@ -14,44 +14,68 @@ class Menu():
         self.bg = tk.Label(master, image=img)
         self.bg.image = img
         self.bg.place(x=0,y=0)
-        # setzt hintergrund #
+        # setzt hintergrund als label #
 
         self.view = tk.LabelFrame(master, bg="#b4b4b4", width=800, height=500, relief="solid")
         self.view.place(relx=0.5, rely=0.5, anchor="center")
-        # fläche des menü #
+        # LabelFrame des menü für button und etc. #
         
         self.menueBtn = [   
-        # standart menü button #              
-                            tk.Entry(self.view, bg="white", relief="solid", font=("Gill Sans Nova", 20), cursor="xterm"),
-                            tk.Button(self.view, command=self.setSpielModus, bg="#cdcbcb", relief="solid", pady=12, padx=130, text="Neues Spiel", font=("Gill Sans Nova", 20)),
-                            tk.Button(self.view, command=self.highScoore, bg="#cdcbcb", relief="solid", pady=12, padx=140, text="Highscore", font=("Gill Sans Nova", 20)),
-                            tk.Button(self.view, command=lambda:os.system("start Anleitung.pdf"), bg="#cdcbcb", relief="solid", pady=12, padx=142, text="Anleitung", font=("Gill Sans Nova", 20))]
+        # standart menü button #
+            
+                            tk.Entry(self.view, bg="white", cursor="xterm"),
+                            # eingabefeld nutzernamen #
 
-        for i in range(len(self.menueBtn)):
-        # standart menue button werden gesetzt #
-            self.menueBtn[i].place(relx=0.5, rely=0.2*(i+1), anchor="center")
+                            tk.Button(self.view, command=self.setSpielModus, fg="darkgreen", padx=130, text="Neues Spiel"),
+                            # neues spiel button #
+
+                            tk.Button(self.view, command=self.highScoore, fg="darkblue", padx=140, text="Highscore"),
+                            # highscore button #
+
+                            tk.Button(self.view, command=lambda:os.system("start Anleitung.pdf"), fg="darkred", padx=142, text="Anleitung")]
+                            # anleitung button #
 
         self.spielModi = [  
         # button bei spielmodi auswahl #
-                            tk.Button(self.view, command=lambda:self.newGame(master=self.master, mode="einfach", row=8, column=8, numOfmine=10), bg="#cdcbcb", relief="solid", pady=12, padx=158, fg="#47ab42", text="Einfach", font=("Gill Sans Nova", 20)),
-                            tk.Button(self.view, command=lambda:self.newGame(master=self.master, mode="mittel", row=16, column=16, numOfmine=40), bg="#cdcbcb", relief="solid", pady=12, padx=164, fg="#d0952c", text="Mittel", font=("Gill Sans Nova", 20)),
-                            tk.Button(self.view, command=lambda:self.newGame(master=self.master, mode="schwer", row=30, column=16, numOfmine=99), bg="#cdcbcb", relief="solid", pady=12, padx=155, fg="#d44343", text="Schwer", font=("Gill Sans Nova", 20)),
-                            tk.Button(self.view, command=self.customGame, bg="#cdcbcb", relief="solid", fg="#c72ed4", pady=12, padx=99, text="Benutzerdefiniert", font=("Gill Sans Nova", 20))]
+
+                            tk.Button(self.view, command=lambda:self.newGame(master=self.master, mode="einfach", row=8, column=8, numOfmine=10), padx=158, fg="#47ab42", text="Einfach"),
+                            tk.Button(self.view, command=lambda:self.newGame(master=self.master, mode="mittel", row=16, column=16, numOfmine=40), padx=164, fg="#d0952c", text="Mittel"),
+                            tk.Button(self.view, command=lambda:self.newGame(master=self.master, mode="schwer", row=30, column=16, numOfmine=99), padx=155, fg="#d44343", text="Schwer"),
+                            tk.Button(self.view, command=self.customGame, fg="#c72ed4", padx=99, text="Benutzerdefiniert")]
 
         self.customFactors = [  
         # überschriften von breite, höhe und minen bei benutzerdefinierten eingabe #
+
                                 tk.Label(self.view, text="Breite:\t", font=("Gill Sans Nova", 20), bg="#b4b4b4"),
                                 tk.Label(self.view, text="Höhe:\t", font=("Gill Sans Nova", 20), bg="#b4b4b4"),
                                 tk.Label(self.view, text="Minen:\t", font=("Gill Sans Nova", 20), bg="#b4b4b4")]
 
         self.customScales = [   
         # scales von breite, höhe und minen bei benutzerdefinierten eingabe #
-                                tk.Scale(self.view, command=lambda i:self.updateScale(0), orient="horizontal", length=610, from_=2, to=30, relief="sunken", showvalue=0),
-                                tk.Scale(self.view, command=lambda i:self.updateScale(1), orient="horizontal", length=610, from_=2, to=30, relief="sunken", showvalue=0),
-                                tk.Scale(self.view, command=lambda i:self.updateScale(2), orient="horizontal", length=610, from_=1, to=800, relief="sunken", showvalue=0)]
+
+                                tk.Scale(self.view, command=lambda i:self.updateScale(id=0), orient="horizontal", length=610, from_=2, to=30, relief="sunken", showvalue=0),
+                                tk.Scale(self.view, command=lambda i:self.updateScale(id=1), orient="horizontal", length=610, from_=2, to=30, relief="sunken", showvalue=0),
+                                tk.Scale(self.view, command=lambda i:self.updateScale(id=2), orient="horizontal", length=610, from_=1, to=3, relief="sunken", showvalue=0)]
     
         self.customDigits = [  tk.Label(self.view, text=f"{self.customScales[i].get()}", relief="solid", width=3, font=("arial", 15)) for i in range(3)]
         # zahlen von breite, höhe und minen bei benutzerdefinierten eingabe #
+
+
+        for i in range(len(self.menueBtn)):
+        # standart menue button und eingabefeld für benutzernamen werden gesetzt #
+        # und attribute für objekte werden gesetzt #
+
+            self.menueBtn[i].config(relief="solid", font=("Gill Sans Nova", 20))
+            self.spielModi[i].config(relief="solid", font=("Gill Sans Nova", 20), bg="#cdcbcb", pady=12)
+            # attribute von allen objekten in menuBtn und spielModi werden gesetzt #
+
+            if i > 0:
+                self.menueBtn[i].config(bg="#cdcbcb", pady=12)
+                # attribute von den button aus menuButton werden ergänzt #
+
+            self.menueBtn[i].place(relx=0.5, rely=0.2*(i+1), anchor="center")
+            # setzt die standart button #
+
 
         self.start = tk.Button(self.view, text="Spiel starten", relief="solid", font=("arial", 15), command=self.startCustomGame)
         # spiel starten button #
@@ -77,7 +101,7 @@ class Menu():
         field.drawField()
         # field zeichnen #
         
-        field.timer.updateTimer(0, 0, 0)
+        field.timer.updateTimer(hour=0, minute=0, sec=0)
         # start timer #
 
     def highScoore(self):
@@ -112,7 +136,7 @@ class Menu():
             for i in range(5):
             # top 5 zeiten #
 
-                if (highscoores[mode][i]['time'] == "99:99:99"):
+                if (highscoores[mode][i]['name'] == ""):
                 # wenn kein neuer eintrag gefunden wurde #
 
                     highList.insert(tk.END, "    Noch kein Rekord")
@@ -142,9 +166,23 @@ class Menu():
     # bei auswahl der faktoren im benutzerdefinierten modus werden die scales aktualisiert #
         
         self.customDigits[id]["text"] = self.customScales[id].get()
+        # zeigt ausgewählten wert im screen #
+
+        if id != 2:
+        # aktualisiert maximale anzahl von minen die zur auswahl stehen #
+        # es werden immer 11.1% abgezogen von der maximalen anzahl an zellen #
+        # somit ist gewährleistet, dass es nie mehr oder gleich viel minen wie zellen gibt oder #
+        # z.B. bei 30x30 ist 900-900*0.111 = 800.1 und das als int = 800 maxMinen
+
+            zeilen = int(self.customScales[0].get())
+            spalten = int(self.customScales[1].get())
+            maxMinen = int((zeilen*spalten)-(zeilen*spalten*0.111))
+
+            self.customScales[2].config(to=maxMinen)
 
     def destroyMenue(self):
     # blendet menü aus #
+    
         self.view.place_forget()
 
         for i in self.menueBtn:
@@ -304,6 +342,7 @@ class SpielFeld():
                             mode=self.mode,
                             timer=self.timer,
                             probability=self.numOfMine/(self.row*self.column)) for i in range(self.column*self.row)]
+
         # erstellt liste mit allen zellen #
 
         self.ki.hint.config(command=lambda:KI.getHint(cellAsList))
@@ -747,3 +786,4 @@ class Zelle():
 
         SpielFeld.checkGame(master=self.master, numOfMine=self.numOfMine, timer=self.timer)
         # checkt ob gewonnen #
+                                
