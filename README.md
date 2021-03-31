@@ -1,5 +1,10 @@
 # Minesweeper
 
+!!!
+Wenn das Skript nicht über einen Editor gestartet wird, dann gibt es Probleme mit den Grafiken, da ich relative Pfade verwendet habe.
+Denn die python.exe liegt selten im selben Ordner wie das Skript, somit kann es die Grafiken nicht finden. Einfach über den Editor starten und das Problem sollte gelöst sein.
+!!!
+
 Es gibt zwei Fälle in denen das Modul OS verwendet wird, in beiden Fällen funktionieren diese Befehle nur unter Windows.
 Einmal beim Öffnen der Anleitung und das zweite Mal beim Öffnen des Links zum Repo.
 
