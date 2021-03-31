@@ -1,7 +1,7 @@
 # Minesweeper
 
-Ich habe neben der Main Datei und allen dazugehörigen Datein eine Datei erstellt in der das gesamte Skript zusammengefasst ist. Dies ist dei "MinesweeperInOneScript.py".
-Sie ist vom Code her identisch, einziger Unterschied sind die Imports.
+Es gibt zwei Fälle in denen das Modul OS verwendet wird, in beiden Fällen funktionieren diese Befehle nur unter Windows.
+Einmal beim Öffnen der Anleitung und das zweite Mal beim Öffnen des Links zum Repo.
 
 Ich habe das Spiel auf folgender Grundlage implementiert:
 
